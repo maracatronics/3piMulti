@@ -1,0 +1,36 @@
+.debug-highlight {
+	position: absolute;
+	z-index: 20;
+	background-color: Maroon;
+}
+
+#editor {
+	height: 500px;
+	width: 80%;
+	float: right;
+}
+
+.logo {
+	padding-left: 35px;
+	background-image: url("mini3pi.png");
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+.container {
+	width: 100%;
+}
+
+#filelist {
+	height: 470px;
+	width: 19%;
+	border-width: 1px;
+	border-color: black;
+	padding-top: 0;
+	float: left;
+}
+
+.updated-variable-item {
+	background-color: LightGreen!important;
+}

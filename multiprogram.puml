@@ -1,0 +1,22 @@
+@startuml
+start
+:menu();
+split
+:setup0();
+repeat
+    :loop0();
+repeat while
+detach
+split again
+:setup1();
+repeat
+    :loop1();
+repeat while ()
+detach
+split again
+:setup2();
+repeat
+    :loop2();
+repeat while
+detach
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+start
+:setup();
+repeat
+    :loop();
+repeat while
+detach
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+start
+partition setup() {
+:menu();
+split
+:loop = loop0;
+:setup0();
+split again
+:loop = loop1;
+:setup1();
+split again
+:loop = loop2;
+:setup2();
+end split
+}
+repeat
+    :loop();
+repeat while
+detach
+@enduml
