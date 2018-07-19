@@ -113,6 +113,7 @@ atomic_llong	LITERAL1	Constants	RESERVED_WORD_2
 atomic_ullong	LITERAL1	Constants	RESERVED_WORD_2
 virtual	LITERAL1	Constants	RESERVED_WORD_2
 PROGMEM	LITERAL1	Constants	RESERVED_WORD_2
+_ORANGUTAN_SVP	Constants	RESERVED_WORD_2
 
 # KEYWORD2 specifies methods and functions
 
