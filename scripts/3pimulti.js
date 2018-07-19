@@ -139,7 +139,7 @@ function process(c) {
 			linecomment = false;
 			includeline = false;
 			isString = false;
-		} else if (c == '#') {
+		} else if (c == 'i' && previouschar == '#') {
 			includeline = true;
 		}
 
