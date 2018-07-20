@@ -107,8 +107,14 @@ function isReserved(s) {
 	for (var i = 0; i < reservedwords.length; i++) {
 		if (s == reservedwords[i]) return true;
 	}
-	
 	if(s == "define") return true;
+	if(s.toLowerCase() == "endif") return true;
+	if(s.startsWith("NOTE_")) return true;
+	if(s.startsWith("BUTTON_")) return true;
+	if(s == "TCCR2A") return true;
+	if(s == "TCCR2B") return true;
+	if(s == "TCNT2") return true;
+	if(s == "srandom") return true;
 	return false;
 }
 
@@ -211,10 +217,10 @@ function createMenu(numPrograms) {
 	result += "\t\t\tdefault: break;\n";
 	result += "\t\t}\n";
 
-
-	result += "\t\tif(OrangutanPushbuttons::isPressed(BUTTON_A)) {\n";
+    result += "\t\tif(OrangutanPushbuttons::isPressed(BUTTON_A)) {\n";
 	result += "\t\t\tOrangutanPushbuttons::waitForRelease(BUTTON_A);\n";
-	result += "\t\t\toption = (option - 1) % " + numPrograms + ";\n";
+	result += "\t\t\tif(option == 0) option = " + (numPrograms-1) + ";\n";
+	result += "\t\t\telse option = (option - 1) % " + numPrograms + ";\n";
 	result += "\t\t}\n";
 	result += "\t\telse if (OrangutanPushbuttons::isPressed(BUTTON_B)) {\n";
 	result += "\t\t\tOrangutanPushbuttons::waitForRelease(BUTTON_B);\n";
@@ -223,7 +229,7 @@ function createMenu(numPrograms) {
 	result += "\t\telse if (OrangutanPushbuttons::isPressed(BUTTON_C)) {\n";
 	result += "\t\t\tOrangutanPushbuttons::waitForRelease(BUTTON_C);\n";
 	result += "\t\t\tswitch (option) {\n";
-	
+
 	for(var i = 0; i < numPrograms; i++) {
 		result += "\t\t\t\tcase " + i + ": mainsetup = &setup" + i + "; mainloop = &loop" + i + "; break;\n";
 	}
