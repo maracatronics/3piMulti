@@ -107,6 +107,8 @@ function isReserved(s) {
 	for (var i = 0; i < reservedwords.length; i++) {
 		if (s == reservedwords[i]) return true;
 	}
+	
+	if(s == "define") return true;
 	return false;
 }
 
@@ -127,6 +129,9 @@ function processName() {
 
 function process(c) {
 	if (isName(c)) {
+		if(previouschar == '#' && c != 'i') {
+			includeline = false;
+		}
 		temp += c;
 	} else {
 		if (c == '*' && previouschar == '/') {
@@ -139,8 +144,9 @@ function process(c) {
 			linecomment = false;
 			includeline = false;
 			isString = false;
-		} else if (c == 'i' && previouschar == '#') {
+		} else if (c == '#') {
 			includeline = true;
+			console.log("here");
 		}
 
 		if (temp.length != 0) {
